@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(LeetCode.MergeAlternately("abcd", "pq"))
+	fmt.Println(LeetCode.GcdOfStrings("ABCABC", "ABC"))
 }
