@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	m := &MaxHeap{}
+	m := &maxHeap{}
 	fmt.Println(m)
 
 	buildHeap := []int{10, 20, 30, 5, 7, 9, 11, 13, 15, 17}
 	for _, v := range buildHeap {
-		m.Insert(v)
+		m.insert(v)
 		fmt.Println(m)
 	}
 
@@ -21,20 +21,20 @@ func main() {
 
 // MaxHeap structhas a slice that holds the array.
 
-type MaxHeap struct {
+type maxHeap struct {
 	slice []int
 }
 
 // Insert adds an element to the heap.
 
-func (h *MaxHeap) Insert(key int) {
+func (h *maxHeap) insert(key int) {
 	h.slice = append(h.slice, key)
 	h.maxHeapifyUp(len(h.slice) - 1)
 }
 
 // Extract returns the largest key, and removes it from the heap.
 
-func (h *MaxHeap) Extract() int {
+func (h *maxHeap) Extract() int {
 
 	extracted := h.slice[0]
 	l := len(h.slice) - 1
@@ -56,7 +56,7 @@ func (h *MaxHeap) Extract() int {
 
 // maxHeapifyUp will heapify from bottom top
 
-func (h *MaxHeap) maxHeapifyUp(index int) {
+func (h *maxHeap) maxHeapifyUp(index int) {
 	for h.slice[parent(index)] < h.slice[index] {
 		h.swap(parent(index), index)
 		index = parent(index)
@@ -65,7 +65,7 @@ func (h *MaxHeap) maxHeapifyUp(index int) {
 
 // maxHeapifyDown will heapify from bottom top
 
-func (h *MaxHeap) maxHeapifyDown(index int) {
+func (h *maxHeap) maxHeapifyDown(index int) {
 
 	lastIndex := len(h.slice) - 1
 	l, r := leftchild(index), rightchild(index)
@@ -111,6 +111,6 @@ func rightchild(i int) int {
 
 //swap keys in the slice
 
-func (h *MaxHeap) swap(i1, i2 int) {
+func (h *maxHeap) swap(i1, i2 int) {
 	h.slice[i1], h.slice[i2] = h.slice[i2], h.slice[i1]
 }
