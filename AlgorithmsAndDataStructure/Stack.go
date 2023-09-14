@@ -1,20 +1,31 @@
-package AlgorithmsAndDataStructure
+package main
 
 import "fmt"
 
-//Простой способ реализовать структуру данных временной очереди в Go - это использовать срез:
-//
-//    чтобы добавить в очередь, вы используете встроенную функцию append
-//    чтобы удалить из очереди - срезать первый элемент
+func main() {
+	myStack := Stack{}
+	fmt.Println(myStack)
+	myStack.push(100)
+	myStack.push(200)
+	myStack.push(300)
+	fmt.Println(myStack)
+	myStack.pop()
+	fmt.Println(myStack)
+}
 
-func Stack() {
-	var queue []string
+type Stack struct {
+	items []int
+}
 
-	queue = append(queue, "Hello ") // Добавление в очередь
-	queue = append(queue, "world!")
+// Push
+func (s *Stack) push(i int) {
+	s.items = append(s.items, i)
+}
 
-	for len(queue) > 0 {
-		fmt.Print(queue[0]) // Первый элемент
-		queue = queue[1:]   // Удаление из очереди
-	}
+// Pop
+func (s *Stack) pop() int {
+	l := len(s.items) - 1
+	lastItem := s.items[l]
+	s.items = s.items[:l]
+	return lastItem
 }
