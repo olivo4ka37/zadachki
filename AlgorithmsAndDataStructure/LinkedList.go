@@ -1,10 +1,10 @@
-package main
+package AlgorithmsAndDataStructure
 
 import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 	mylist := linkedList{}
 	node1 := &node{data: 48}
 	node2 := &node{data: 18}
@@ -23,30 +23,29 @@ func main()  {
 	mylist.deleteWithValue(666)
 	mylist.deleteWithValue(2)
 	mylist.printListData()
-	emptylist := linkedList{
-	}
+	emptylist := linkedList{}
 	emptylist.deleteWithValue(11)
 	emptylist.printListData()
 }
 
 type node struct {
 	data int
-	next * node
+	next *node
 }
 
 type linkedList struct {
-	head *node
+	head   *node
 	length int
 }
 
-func (l *linkedList) prepend (n *node) {
+func (l *linkedList) prepend(n *node) {
 	second := l.head
 	l.head = n
-	l.head.next	= second
+	l.head.next = second
 	l.length++
 }
 
-func (l linkedList) printListData () {
+func (l linkedList) printListData() {
 	toPrint := l.head
 	for l.length != 0 {
 		fmt.Printf("%d ", toPrint.data)
@@ -67,9 +66,6 @@ func (l *linkedList) deleteWithValue(value int) {
 		return
 	}
 
-
-
-
 	previousToDelete := l.head
 	for previousToDelete.next.data != value {
 		if previousToDelete.next.next == nil {
@@ -80,5 +76,3 @@ func (l *linkedList) deleteWithValue(value int) {
 	previousToDelete.next = previousToDelete.next.next
 	l.length--
 }
-
-
