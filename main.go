@@ -1,23 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
-	// Задание размерности n
-	n := 10
+	in := bufio.NewReader(os.Stdin)
+	//out := bufio.NewWriter(os.Stdout)
 
-	// Создание и инициализация двумерного массива размерности n x 2
-	matrix := make([][]int, n)
-	fmt.Println(matrix)
-	for i := range matrix {
-		matrix[i] = make([]int, 2)
-		matrix[i][0] = i * 2
-		matrix[i][1] = i*2 + 1
+	var n, m int
+	//var xSymbol byte
+
+	fmt.Fscan(in, &n, &m)
+	var arrASCII [][]byte
+	for z := 0; z <= n; z++ {
+		row, _ := in.ReadBytes('\n')
+		//fmt.Println(string(row))
+		arrASCII = append(arrASCII, row)
 	}
-	fmt.Println(matrix)
 
-	// Вывод двумерного массива
-	for i := 0; i < n; i++ {
-		fmt.Printf("%d: %d %d\n", i, matrix[i][0], matrix[i][1])
+	for i := 0; i <= n; i++ {
+		fmt.Print(string(arrASCII[i]))
 	}
 }
