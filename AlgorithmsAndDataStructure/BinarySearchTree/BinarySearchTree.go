@@ -1,4 +1,4 @@
-package AlgorithmsAndDataStructure
+package BinarySearchTree
 
 import "fmt"
 

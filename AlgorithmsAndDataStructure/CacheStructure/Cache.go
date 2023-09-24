@@ -1,4 +1,4 @@
-package AlgorithmsAndDataStructure
+package CacheStructure
 
 import (
 	"errors"

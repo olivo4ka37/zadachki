@@ -1,4 +1,4 @@
-package AlgorithmsAndDataStructure
+package MaxHeap
 
 import "fmt"
 

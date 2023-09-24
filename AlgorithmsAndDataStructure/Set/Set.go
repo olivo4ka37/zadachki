@@ -1,4 +1,4 @@
-package AlgorithmsAndDataStructure
+package Set
 
 import "fmt"
 
