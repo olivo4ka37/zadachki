@@ -1,27 +1,14 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"zadachki/LeetCode"
 )
 
 func main() {
-	in := bufio.NewReader(os.Stdin)
-	//out := bufio.NewWriter(os.Stdout)
-
-	var n, m int
-	//var xSymbol byte
-
-	fmt.Fscan(in, &n, &m)
-	var arrASCII [][]byte
-	for z := 0; z <= n; z++ {
-		row, _ := in.ReadBytes('\n')
-		//fmt.Println(string(row))
-		arrASCII = append(arrASCII, row)
-	}
-
-	for i := 0; i <= n; i++ {
-		fmt.Print(string(arrASCII[i]))
-	}
+	//	str := "0123456789"
+	//	for i:=0;i<len(str);i++ {
+	//		fmt.Println(byte(str[i]))
+	//	}
+	fmt.Println(LeetCode.Compress([]byte{97, 97, 97, 97, 98, 97}))
 }
