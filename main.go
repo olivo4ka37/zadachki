@@ -6,9 +6,5 @@ import (
 )
 
 func main() {
-	//	str := "0123456789"
-	//	for i:=0;i<len(str);i++ {
-	//		fmt.Println(byte(str[i]))
-	//	}
-	fmt.Println(LeetCode.Compress([]byte{97, 97, 97, 97, 98, 97}))
+	fmt.Println(LeetCode.MaxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7}))
 }
