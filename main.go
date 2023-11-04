@@ -6,5 +6,10 @@ import (
 )
 
 func main() {
-	fmt.Println(LeetCode.FindMaxAverage([]int{0, 1, 1, 3, 3}, 4))
+	fmt.Println(LeetCode.SingleNumber([]int{4, 1, 2, 1, 2}))
+	// x1 := 91
+	// x1 /= 100
+	// fmt.Println(((144%100))%11)
+	// fmt.Println(4313/10)
+	// fmt.Println(x1)
 }
