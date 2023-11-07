@@ -6,22 +6,22 @@ import (
 	"os"
 )
 
-func main(){
+func main() {
 	in := bufio.NewReader(os.Stdin)
 	out := bufio.NewWriter(os.Stdout)
 	defer out.Flush()
 
 	var n, x, y, result, k int
 
-	fmt.Fscan(in,&n)
+	fmt.Fscan(in, &n)
 
-	for i:=0;i<n;i++{
+	for i := 0; i < n; i++ {
 		fmt.Fscan(in, &x, &y, &k)
 		if y < x {
 			result = x
 			fmt.Fprintln(out, result)
 		} else {
-			if x + k >= y {
+			if x+k >= y {
 				result = y
 				fmt.Fprintln(out, result)
 			} else {
