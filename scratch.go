@@ -11,9 +11,13 @@ func InputFunc() {
 	out := bufio.NewWriter(os.Stdout)
 	defer out.Flush()
 
-	var testCount int
-	var testInt int
+	var n int
 
-	fmt.Fscan(in, &testCount, &testInt)
-	fmt.Println(testCount &^ testInt)
+	fmt.Fscan(in, &n)
+
+	for i := 0; i < n; i++ {
+
+	}
+
+	fmt.Fprintln(out, n)
 }

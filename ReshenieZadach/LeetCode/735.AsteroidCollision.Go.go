@@ -4,7 +4,7 @@ func AsteroidCollision(asteroids []int) []int {
 	workedArr := stack1{items: nil}
 	xLen := -1
 
-	for i:=0;i<len(asteroids);i++ {
+	for i := 0; i < len(asteroids); i++ {
 		//fmt.Println(i)
 		if asteroids[i] > 0 || len(workedArr.items) == 0 {
 			workedArr.push(asteroids[i])
