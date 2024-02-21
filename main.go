@@ -16,7 +16,7 @@ func main() {
 	fmt.Fscan(in, &n)
 
 	for i := 0; i < n; i++ {
-		var lenN, ix, compressionX int
+		var lenN, ix int
 		var compressionON bool = false
 		var differenceX int
 		result := make([]int, lenN)

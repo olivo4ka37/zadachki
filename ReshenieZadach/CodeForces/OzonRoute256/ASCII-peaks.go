@@ -11,7 +11,6 @@ func main() {
 	out := bufio.NewWriter(os.Stdout)
 
 	var t, k, n, m int
-	var xSymbol rune
 
 	fmt.Fscan(in, &t)
 
