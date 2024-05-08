@@ -55,7 +55,7 @@ go.work
 
 *.xml
 *.iml
+.idea/.gitignore
+.idea
+.main.go
 
-zadachki
-zadachki.pub
-.gitignore
