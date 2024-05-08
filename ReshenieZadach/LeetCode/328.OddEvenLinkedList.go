@@ -1,70 +1,33 @@
 package LeetCode
 
-import "fmt"
-
 func OddEvenList(head *ListNode) *ListNode {
 	if head == nil {
 		return head
 	}
 
-	result, queueEven := make([]ListNode, 10001), make([]ListNode, 10001)
-	addOdd, firstOdd, firstEven, listing := true, true, true, true
-	i, j := 0, 0
+	queueOdd, queueEven := make([]int, 0, 10001), make([]int, 0, 10001)
 
-	for listing {
-		if head.Next == nil {
-			listing = false
-		}
-		if addOdd == true {
-			newNode := ListNode{
-				Val:  head.Val,
-				Next: nil,
-			}
-			if firstOdd != true {
-				result[i].Next = &newNode
-				i++
-			}
-			result[i] = newNode
-			addOdd = false
-			firstOdd = false
+	for i := 0; i < 10001; i++ {
+		if i%2 == 0 {
+			queueOdd = append(queueOdd, head.Val)
 		} else {
-			newNode := ListNode{
-				Val:  head.Val,
-				Next: nil,
-			}
-			if firstEven != true {
-				queueEven[j].Next = &newNode
-				j++
-			}
-			queueEven[j] = newNode
-			firstEven = false
-			addOdd = true
+			queueEven = append(queueEven, head.Val)
 		}
-		if head.Next != nil {
-			head = head.Next
+
+		if head.Next == nil {
+			i = 10001
 		}
+		head = head.Next
 	}
 
-	listing = true
-	for listing {
-		if queueEven[0].Next == nil {
-			listing = false
-		}
-		newNode := ListNode{
-			Val:  queueEven[0].Val,
-			Next: nil,
-		}
-		result[i].Next = &newNode
-		i++
-		result[i] = newNode
+	queueOdd = append(queueOdd, queueEven...)
+	result := make([]ListNode, len(queueOdd))
 
-		if queueEven[0].Next != nil {
-			queueEven[0] = *queueEven[0].Next
+	for i := 0; i < len(queueOdd); i++ {
+		result[i].Val = queueOdd[i]
+		if i != 0 {
+			result[i-1].Next = &result[i]
 		}
-	}
-
-	for _, x := range result {
-		fmt.Println(&x, "11111", x.Val, x.Next.Next)
 	}
 
 	return &result[0]
