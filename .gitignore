@@ -57,5 +57,3 @@ go.work
 *.iml
 .idea/.gitignore
 .idea
-main.go
-scratch.go
