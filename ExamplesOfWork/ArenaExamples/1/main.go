@@ -3,7 +3,10 @@
 
 package main
 
-import "arena"
+import (
+	"arena"
+	"fmt"
+)
 
 type Person struct {
 	Lastname  string
@@ -18,4 +21,6 @@ func main() {
 		obj := arena.New[Person](mem)
 		print(obj)
 	}
+
+	fmt.Println("123")
 }
