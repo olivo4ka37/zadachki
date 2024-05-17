@@ -4,7 +4,7 @@ type RecentCounter struct {
 	requests []int
 }
 
-func Constructor() RecentCounter {
+func ConstructorRecentCounter() RecentCounter {
 	return RecentCounter{
 		requests: nil,
 	}
@@ -24,6 +24,6 @@ func (this *RecentCounter) ping(t int) int {
 
 /**
  * Your RecentCounter object will be instantiated and called as such:
- * obj := Constructor();
+ * obj := ConstructorRecentCounter();
  * param_1 := obj.Ping(t);
  */
