@@ -1,6 +1,7 @@
 package LeetCode
 
 import (
+	"fmt"
 	"sort"
 )
 
@@ -11,14 +12,14 @@ func ThreeSum(nums []int) [][]int {
 		return nums[i] > nums[j]
 	})
 
-	//fmt.Println("nums is:", nums)
+	fmt.Println("nums is:", nums)
 
 	for i := 0; i < len(nums)-2; i++ {
 		j, k := i+1, len(nums)-1
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		//fmt.Println("i is:", i, "j is:", j, "k is:", k)
+		fmt.Println("i is:", i, "j is:", j, "k is:", k)
 		for j < k {
 			if nums[i]+nums[j]+nums[k] == 0 {
 				result = append(result, []int{nums[i], nums[j], nums[k]})
@@ -31,7 +32,7 @@ func ThreeSum(nums []int) [][]int {
 			} else {
 				j++
 			}
-			//fmt.Println("j is:", j, "k is:", k, "RESULT IS:", result)
+			fmt.Println("j is:", j, "k is:", k, "RESULT IS:", result)
 		}
 	}
 
