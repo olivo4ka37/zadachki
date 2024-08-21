@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"zadachki/Patterns/01_Facade/pkg"
+	pkg2 "zadachki/algoExamplesPatterns/patterns/01_Facade/pkg"
 )
 
 /*
@@ -37,41 +37,41 @@ import (
 
 // Инициализация банка, двух карт, двух пользователей, одного продукта и магазина с этим продуктом.
 var (
-	bank = pkg.Bank{
+	bank = pkg2.Bank{
 		Name:  "Банк",
-		Cards: []pkg.Card{},
+		Cards: []pkg2.Card{},
 	}
 
-	card1 = pkg.Card{
+	card1 = pkg2.Card{
 		Name:    "CARD-1",
 		Balance: 200,
 		Bank:    &bank,
 	}
 
-	card2 = pkg.Card{
+	card2 = pkg2.Card{
 		Name:    "CARD-2",
 		Balance: 5,
 		Bank:    &bank,
 	}
 
-	user = pkg.User{
+	user = pkg2.User{
 		Name: "Андрей",
 		Card: &card1,
 	}
 
-	user2 = pkg.User{
+	user2 = pkg2.User{
 		Name: "Андриана",
 		Card: &card2,
 	}
 
-	prod = pkg.Product{
+	prod = pkg2.Product{
 		Name:  "Сыр",
 		Price: 150,
 	}
 
-	shop = pkg.Shop{
+	shop = pkg2.Shop{
 		Name: "SHOP",
-		Products: []pkg.Product{
+		Products: []pkg2.Product{
 			prod,
 		},
 	}

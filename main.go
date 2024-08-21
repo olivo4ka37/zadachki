@@ -1,38 +1,29 @@
-//go:build goexperiment.arenas
-// +build goexperiment.arenas
-
 package main
 
-import (
-	"arena"
-	"fmt"
-	"os"
-	"runtime/trace"
-	"time"
-)
+import "fmt"
 
-const (
-	numberOfArrays = 100
-	arrayLen       = 2000
-)
+// Задача "Асинхронное слияние каналов"
+// Реализовать функцию asyncMerge, которая будет производить асинхронное слияние каналов.
 
+// Исходные данные:
 func main() {
-	// Запись в trace файл
-	f, _ := os.Create("trace.out")
-	trace.Start(f)
-	defer trace.Stop()
+	ch1 := make(chan int, 10)
+	ch2 := make(chan int, 20)
 
-	mem := arena.NewArena()
-	for j := 0; j < numberOfArrays; j++ {
-		o1 := arena.MakeSlice[float64](mem, arrayLen, arrayLen)
-		for i := 0; i < arrayLen; i++ {
-			o1[i] = float64(i)
-		}
-		time.Sleep(10 * time.Millisecond)
+	ch1 <- 1
+	ch2 <- 2
+	ch2 <- 4
+
+	close(ch1)
+	close(ch2)
+
+	ch3 := asyncMerge[int](ch1, ch2)
+
+	for val := range ch3 {
+		fmt.Println(val)
 	}
-	t := arena.New[int](mem)
-	value := 42
-	t = &value
-	fmt.Println(*t)
-	mem.Free()
+}
+
+func asyncMerge[T any](chans ...chan T) chan T {
+	return nil
 }
